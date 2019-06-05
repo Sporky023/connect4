@@ -2,9 +2,7 @@ import Board from 'model/Board'
 import states from 'testSupport/boardStates'
 
 test('A vertical sequence of four is a win', () => {
-  let board = new Board(states.withVerticalWinForBlack)
+  let board = new Board( states.verticalWinForBlack.state )
 
-  expect( board.getWins('B') ).toEqual( [
-    [ [0, 0], [0, 1], [0, 2], [0, 3] ]
-  ] )
+  expect( board.getWins('B') ).toEqual( states.verticalWinForBlack.wins )
 })
