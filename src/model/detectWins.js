@@ -13,35 +13,25 @@ const detectVerticalWins = (state, targetColor) => {
 }
 export { detectVerticalWins }
 
-const detectHorizontalWins = (state, targetColor) => {
+const detectTraversingWins = (state, targetColor, dy) => {
   let wins = []
 
   state.forEach( (column, x) => {
     column.forEach( (space, y) => {
-      const win = horizontalWinFromSpace( state, targetColor, {x, y} )
+      const win = traversingWinFromSpace(
+        state,
+        targetColor,
+        {x, y},
+        {dx: 1, dy }
+      )
 
-      if(win) { wins.push(win) }
+      if(win){ wins.push(win) }
     } )
   } )
 
   return wins
 }
-export { detectHorizontalWins }
-
-const detectDiagRisingWins = (state, targetColor) => {
-  let wins = []
-
-  state.forEach( (column, x) => {
-    column.forEach( (space, y) => {
-      const win = diagRisingWinFromSpace( state, targetColor, {x, y} )
-
-      if(win) { wins.push(win) }
-    } )
-  } )
-
-  return wins
-}
-export { detectDiagRisingWins }
+export { detectTraversingWins }
 
 const verticalWinInColumn = (column, targetColor, colIndex) => {
   let win = []
@@ -61,28 +51,13 @@ const verticalWinInColumn = (column, targetColor, colIndex) => {
   }
 }
 
-const horizontalWinFromSpace = ( state, targetColor, spaceCoords ) => {
+const traversingWinFromSpace = (state, targetColor, spaceCoords, slope) => {
   var win = []
 
-  for(var dx = 0; dx < 4; dx++){
-    const targetCoords = { x: spaceCoords.x + dx, y: spaceCoords.y }
-
-    if( boardStateAt(state, targetCoords) === targetColor ){
-      win.push(targetCoords)
-    } else {
-      return null
-    }
-  }
-
-  return win
-}
-
-const diagRisingWinFromSpace = ( state, targetColor, spaceCoords ) => {
-  var win = []
-
-  for( var dx = 0; dx < 4; dx++){
-    const dy = dx
-    const targetCoords = { x: spaceCoords.x + dx, y: spaceCoords.y = dy }
+  for( var i = 0; i < 4; i++ ){
+    const dx = slope.dx * i
+    const dy = slope.dy * i
+    const targetCoords = { x: spaceCoords.x + dx, y: spaceCoords.y + dy }
 
     if( boardStateAt(state, targetCoords) === targetColor ){
       win.push(targetCoords)

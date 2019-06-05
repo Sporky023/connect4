@@ -1,7 +1,6 @@
 import {
   detectVerticalWins,
-  detectHorizontalWins,
-  detectDiagRisingWins
+  detectTraversingWins
 } from 'model/detectWins'
 
 class Board {
@@ -15,8 +14,8 @@ class Board {
 
   getWins = (targetColor) => {
     const verticalWins = detectVerticalWins(this.state, targetColor)
-    const horizontalWins = detectHorizontalWins(this.state, targetColor)
-    const diagRisingWins = detectDiagRisingWins(this.state, targetColor)
+    const horizontalWins = detectTraversingWins(this.state, targetColor, 0)
+    const diagRisingWins = detectTraversingWins(this.state, targetColor, 1)
 
     return [
       ...verticalWins,
