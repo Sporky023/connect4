@@ -28,6 +28,21 @@ const detectHorizontalWins = (state, targetColor) => {
 }
 export { detectHorizontalWins }
 
+const detectDiagRisingWins = (state, targetColor) => {
+  let wins = []
+
+  state.forEach( (column, x) => {
+    column.forEach( (space, y) => {
+      const win = diagRisingWinFromSpace( state, targetColor, {x, y} )
+
+      if(win) { wins.push(win) }
+    } )
+  } )
+
+  return wins
+}
+export { detectDiagRisingWins }
+
 const verticalWinInColumn = (column, targetColor, colIndex) => {
   let output = []
 
@@ -51,6 +66,23 @@ const horizontalWinFromSpace = ( state, targetColor, spaceCoords ) => {
 
   for(var dx = 0; dx < 4; dx++){
     const targetCoords = { x: spaceCoords.x + dx, y: spaceCoords.y }
+
+    if( boardStateAt(state, targetCoords) === targetColor ){
+      output.push(targetCoords)
+    } else {
+      return null
+    }
+  }
+
+  return output
+}
+
+const diagRisingWinFromSpace = ( state, targetColor, spaceCoords ) => {
+  var output = []
+
+  for( var dx = 0; dx < 4; dx++){
+    const dy = dx
+    const targetCoords = { x: spaceCoords.x + dx, y: spaceCoords.y = dy }
 
     if( boardStateAt(state, targetCoords) === targetColor ){
       output.push(targetCoords)
