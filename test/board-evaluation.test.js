@@ -18,3 +18,9 @@ test('A rising diagonal sequence of four is a win', () => {
 
   expect( board.getWins('B') ).toEqual( states.diagRisingWinForBlack.wins )
 })
+
+test('A descending diagonal sequence of four is a win', () => {
+  let board = new Board( states.diagDescendingWinForBlack.state )
+
+  expect( board.getWins('B') ).toEqual( states.diagDescendingWinForBlack.wins )
+})
