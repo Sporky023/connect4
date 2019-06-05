@@ -96,3 +96,55 @@ I may add more coverage around detection if I find problems later on in implemen
 Next step is mutating the board, i.e. playing a move.
 
 A method on board will simply return true or false for whether the move is valid or not, and change the state for the tile moved in the case the move is valid.
+
+## 2:45 pm
+
+Okay that was easy. Next step is to design how the game flow will work.
+
+Essentially, in response to a user event, we will have to:
+
+* attempt the move on the board, noting the result
+* if the result is false, set a message like "invalid move" to the user (note this is an unexpected state because the UI should not afford the option to drop a tile into a full column - or should it?)
+* if the result is true:
+  * set the game's board state to the board's new state
+  * check for wins for the color just played
+  * if there's a win, change the game's state to "X just won"
+    * this brings up a question of how I use an alert to represent app state - how do state and events interact?
+  * check for a draw state (board is full)
+  * if there's a draw state, change the game's state to "it's a draw"
+
+Might as well get an idea of that game's full sequence here. Instead of a loop, it makes sense to model it as a state machine.
+
+* state: Game starting
+  * initilize board
+  * Present color selection for Player 1
+  * Player 1 picks their color
+
+* state: Player 1's turn
+  * Player 1 clicks to play
+  * Results of move are checked to determine next state:
+    * Player 1 wins
+    * Draw
+    * Player 2's turn
+
+* state: Player 2's turn
+  * Player 2 clicks to play
+  * Results of this move determine next state:
+    * Player 2 wins
+    * Draw
+    * Player 1's turn
+
+* state: Player N wins
+  * Display message (message component shows alert on componentDidMount)
+  * on alert close, go to "Game starting"
+
+* state: Draw
+  * Display message
+  * on alert close, go to "Game starting"
+
+Those 5 states map onto various sets of components for display, and the game's state can be stored in ther redux store.
+
+I think without further ado, I'm going to get into building the react side of
+things.
+
+There may be more work to do on the model, but that will be informed by construction of the app.
