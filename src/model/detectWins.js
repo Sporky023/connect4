@@ -33,7 +33,7 @@ const verticalWinInColumn = (column, targetColor, colIndex) => {
 
   column.forEach( (space, i) => {
     if( space === targetColor ) {
-      output.push( [colIndex, i] )
+      output.push( {x:colIndex, y:i} )
     } else {
       output = []
     }

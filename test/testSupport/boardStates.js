@@ -8,9 +8,7 @@ const verticalWinForBlack = {
     [],
     []
   ],
-  wins: [
-    [ [0, 0], [0, 1], [0, 2], [0, 3] ]
-  ]
+  wins: [ [ {x:0,y:0}, {x:0,y:1}, {x:0,y:2}, {x:0,y:3} ] ]
 }
 
 const horizontalWinForBlack = {
