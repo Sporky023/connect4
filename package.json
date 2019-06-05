@@ -1,0 +1,7 @@
+{
+  "name": "connect4",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Luke Griffiths <wlgriffiths@gmail.com>",
+  "license": "MIT"
+}

@@ -1,0 +1,61 @@
+# Connect 4
+
+This is an implementation of the game Connect 4 in React, built as an exercise.
+
+This README is intended as a design journal, to track my thoughts and planning for the exercise.  
+
+## 11:15 am
+
+There are a few main steps to producing this application:
+
+* Build a data model that behaves like a Connect 4 board
+* Integration that data model into reducers for a redux state
+* Build a react app that connects a UI to that state and reducer
+
+### The data model
+
+The data model is the hardest part of this, so I'm going to start with that.
+
+I want to turn the following behavioral statements into a set of Jest tests, using TDD to develop the board model.
+
+Instead of modeling the board as a series of rows, as might be expected by usual rendering techniques in a web based UI, I'm going to model it as a set of columns to mimic the physics of the way the game is played.
+
+A typical board state, with four pieces played, might look like:
+
+```
+[
+  ['R', 'B'],
+  [],
+  [],
+  [],
+  ['B'],
+  ['R'],
+  []
+]
+```
+
+The first element of the array represents the pieces played first, i.e. the piece at the bottom of the column.
+
+Empty spaces are not represented, because it is impossible for an empty space to exist between two non-empty spaces (due to gravity).
+For rendering, I will probably provide the view with a "padded" array that is always of length 6, so the view knows how to iterate without being too clever.
+
+* Evaluating a board state
+  * Valid states
+    * A vertical sequence of four is a win
+    * A horizontal sequence of four is a win
+    * A diagonal sequence up-right of four is a win
+    * A diagonal sequence down-right of four is a win
+    * A full board without any wins is a draw
+  * Invalid states (invalid states should never be reached)
+    * A board with multiple wins is invalid
+    * A board where N1 - N2 > 1 is invalid, where N1 is the number of pieces owned by the first player, and N2 is the number of pieces owned by the second player
+
+Whether or not to build validation checks is undecided at this point.
+The utility of doing validation checks would be as a (non-exhaustive) means of detecting logical bugs in my code.
+
+* Playing a move
+  * A play is represented by two arguments: the color being played and the column it's played on
+  * An attempted play on a full column is invalid and rejected (need to decide what rejection looks like)
+  * A play on a non-full column results in the piece being added to that column.
+
+Without further ado, I'm going to start coding up these test cases.
