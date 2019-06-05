@@ -3,5 +3,16 @@
   "version": "1.0.0",
   "main": "index.js",
   "author": "Luke Griffiths <wlgriffiths@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "babel-jest": "^24.8.0",
+    "jest": "^24.8.0",
+    "webpack": "^4.33.0"
+  }
 }
