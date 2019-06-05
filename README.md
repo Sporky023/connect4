@@ -47,6 +47,9 @@ For rendering, I will probably provide the view with a "padded" array that is al
     * A diagonal sequence down-right of four is a win
     * A full board without any wins is a draw
   * Invalid states (invalid states should never be reached)
+    * A board with the wrong number of columns is invalid
+    * A board with an over-full columns is invalid
+    * A board containing values other than 'B' or 'R' is invalid
     * A board with multiple wins is invalid
     * A board where N1 - N2 > 1 is invalid, where N1 is the number of pieces owned by the first player, and N2 is the number of pieces owned by the second player
 
@@ -59,3 +62,14 @@ The utility of doing validation checks would be as a (non-exhaustive) means of d
   * A play on a non-full column results in the piece being added to that column.
 
 Without further ado, I'm going to start coding up these test cases.
+
+## 12:30 am
+
+I'm going to have the win detection return the coordinates of the winning
+pieces.
+
+This is a bit more engineering effort, but if the problem is solved early on,
+it may yield productive play options later.
+
+One simple example is the ability to highlight winning pieces in the event of a
+win.
