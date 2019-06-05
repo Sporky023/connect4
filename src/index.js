@@ -1,22 +1,19 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
-
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
 
-import { Container, Row, Col } from 'reactstrap'
+import App from 'components/App'
+import rootReducer from 'reducers'
+import devState from 'devState'
 
-const HelloWorld = () => (
-  <div>Hello World. This will become Connect 4</div>
-)
+const store = createStore(rootReducer, devState)
 
 ReactDOM.render(
-  <Container>
-    <Row>
-      <Col xs={{ offset: 4, width: 4 }}>
-        <HelloWorld />
-      </Col>
-    </Row>
-  </Container>,
+  <Provider store={store}>
+    <App />
+  </Provider>,
 
   document.getElementById('mountpoint')
 )

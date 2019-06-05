@@ -148,3 +148,7 @@ I think without further ado, I'm going to get into building the react side of
 things.
 
 There may be more work to do on the model, but that will be informed by construction of the app.
+
+## 3:50 pm
+
+First goal is going to be to initialize a board in the state, and then render that board to the screen.
