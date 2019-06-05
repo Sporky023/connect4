@@ -50,9 +50,18 @@ const diagDescendingWinForBlack = {
   wins: [ [ {x:0,y:3}, {x:1,y:2}, {x:2,y:1}, {x:3,y:0} ] ]
 }
 
+const firstColumnFull = {
+  state: [
+    ['R', 'B', 'R', 'B', 'R', 'B'],
+    [], [], [], [], [], []
+  ],
+  wins: []
+}
+
 export default {
   verticalWinForBlack,
   horizontalWinForBlack,
   diagRisingWinForBlack,
-  diagDescendingWinForBlack
+  diagDescendingWinForBlack,
+  firstColumnFull
 }

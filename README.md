@@ -73,3 +73,26 @@ it may yield productive play options later.
 
 One simple example is the ability to highlight winning pieces in the event of a
 win.
+
+## 1:55 pm
+
+I'm done with detecting wins on the board. Now I need to decide whether to build validation or not, or to move on to board manipulation.
+
+Also I'm starting to question whether using a class for the board is the right decision. For now I will go ahead and keep building the board as a class.
+If that proves to be awkward as I am integrating the board into redux and its reducer, I will drop the class aspect of the board.
+
+I've spent a little time on refactoring, to ensure the code is as simple and as readable as possible.
+The traversing function I've written could be generalized to include the vertical case as well.
+Somehow my gut is telilng me that it's useful to maintain a separation between wins that exist within a single column, and wins that span multiple columns.
+Going to leave it as it for now.
+
+Also going to take a break.
+
+## 2:35 pm
+
+Starting again. Current test coverage is just detecting wins.
+I may add more coverage around detection if I find problems later on in implementation.
+
+Next step is mutating the board, i.e. playing a move.
+
+A method on board will simply return true or false for whether the move is valid or not, and change the state for the tile moved in the case the move is valid.
