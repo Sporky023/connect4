@@ -152,3 +152,10 @@ There may be more work to do on the model, but that will be informed by construc
 ## 3:50 pm
 
 First goal is going to be to initialize a board in the state, and then render that board to the screen.
+
+## 4:50 pm
+
+That took about an hour, and it's done.
+I've used a fake "devState" to get a pre-filled board for rendering.
+
+Current progress, roughly end of first 4.5 hours of work, is visible in commit 47c112c.
