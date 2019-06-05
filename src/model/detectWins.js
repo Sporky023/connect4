@@ -13,6 +13,21 @@ const detectVerticalWins = (state, targetColor) => {
 }
 export { detectVerticalWins }
 
+const detectHorizontalWins = (state, targetColor) => {
+  let wins = []
+
+  state.forEach( (column, x) => {
+    column.forEach( (space, y) => {
+      const win = horizontalWinFromSpace( state, targetColor, {x, y} )
+
+      if(win) { wins.push(win) }
+    } )
+  } )
+
+  return wins
+}
+export { detectHorizontalWins }
+
 const verticalWinInColumn = (column, targetColor, colIndex) => {
   let output = []
 
@@ -30,3 +45,21 @@ const verticalWinInColumn = (column, targetColor, colIndex) => {
     return output
   }
 }
+
+const horizontalWinFromSpace = ( state, targetColor, spaceCoords ) => {
+  var output = []
+
+  for(var dx = 0; dx < 4; dx++){
+    const targetCoords = { x: spaceCoords.x + dx, y: spaceCoords.y }
+
+    if( boardStateAt(state, targetCoords) === targetColor ){
+      output.push(targetCoords)
+    } else {
+      return null
+    }
+  }
+
+  return output
+}
+
+const boardStateAt = (state, coords) => (state[ coords.x ][ coords.y ])

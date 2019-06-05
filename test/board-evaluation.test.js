@@ -6,3 +6,9 @@ test('A vertical sequence of four is a win', () => {
 
   expect( board.getWins('B') ).toEqual( states.verticalWinForBlack.wins )
 })
+
+test('A horizontal sequence of four is a win', () => {
+  let board = new Board( states.horizontalWinForBlack.state )
+
+  expect( board.getWins('B') ).toEqual( states.horizontalWinForBlack.wins )
+})
