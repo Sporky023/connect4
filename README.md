@@ -178,3 +178,17 @@ After looking at libraries react-router and connected-react-router, it looks lik
 
 I'm just going to build a custom component for this.
 
+
+## 3:30 pm
+
+Just took a half hour break. Before that, got the game to the point where you pick colors and then take turns dropping tiles on the board.
+
+At this point I'm at commit 606de4e.
+
+Before I do anything else I'm going to address that edge case before I forget: ensuring the traversing win-detector doesn't search into negative indices.
+
+... and never mind; javascript doesn't have negative indices in arrays like ruby does. Edge case handled (avoided).
+
+So next I'm moving to detecting wins and draws on each play.
+
+First I'll have to add draw-detection to the board-evaluation behavior.
