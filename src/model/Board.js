@@ -38,6 +38,14 @@ class Board {
       ...diagDescendingWins
     ]
   }
+
+  isDraw = () => (
+    this.isFull() &&
+    this.getWins('R').length === 0 &&
+    this.getWins('B').length === 0
+  )
+
+  isFull = () => ( this.state.every( col => col.length === 6 ) )
 }
 
 export default Board

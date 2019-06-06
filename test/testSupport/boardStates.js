@@ -58,10 +58,25 @@ const firstColumnFull = {
   wins: []
 }
 
+const draw = {
+  state: [
+    ["B","B","R","B","R","B"],
+    ["R","B","R","B","R","B"],
+    ["R","R","B","B","R","B"],
+    ["B","B","R","R","B","R"],
+    ["R","B","B","B","R","R"],
+    ["R","R","R","R","B","R"],
+    ["B","B","B","R","R","B"]
+  ],
+  wins: []
+}
+
+
 export default {
   verticalWinForBlack,
   horizontalWinForBlack,
   diagRisingWinForBlack,
   diagDescendingWinForBlack,
-  firstColumnFull
+  firstColumnFull,
+  draw
 }

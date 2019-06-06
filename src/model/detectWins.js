@@ -69,4 +69,8 @@ const traversingWinFromSpace = (state, targetColor, spaceCoords, slope) => {
   return win
 }
 
-const boardStateAt = (state, coords) => (state[ coords.x ][ coords.y ])
+const boardStateAt = (state, coords) => (
+  state[ coords.x ] ?
+  state[ coords.x ][ coords.y ] :
+  undefined
+)
