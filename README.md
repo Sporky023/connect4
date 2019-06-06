@@ -159,3 +159,22 @@ That took about an hour, and it's done.
 I've used a fake "devState" to get a pre-filled board for rendering.
 
 Current progress, roughly end of first 4.5 hours of work, is visible in commit 47c112c.
+
+## Second day, 12:45 pm
+
+Am picking this back up.
+Yesterday I got a board model built that detects win states,
+(though there is one edge case I need to cover which is that while searching for a descending diagonal win, it could go into negative array indices and erroneously read from the other end of the column),
+and I got the board rendering for a given state.
+
+I'm going to start building from the app's start point, which is picking colors for sides.
+I'm tempted to try and use react-router for the state-machine based flow management,
+because a router maps well to a state machine, but there are two features or normal routing that I *don't* want: (a) I don't want the path to change as the state changes, and (b) I don't want the user to be able to use the back button to go to a previous state.
+
+I'm going to start by looking at react router and see what options it has for non-path, non-history related routing.
+If it's too much of a mismatch I'll just build my own router-like functionality. All I really need is a way of saying "in this state, render this component", and have a list of those states so not just an if/else but more like a switch.
+
+After looking at libraries react-router and connected-react-router, it looks like there is a way to set this up using a MemoryRouter and various HOCs from connected-react-router to do this, but it's overkill just to render certain components based on state.
+
+I'm just going to build a custom component for this.
+

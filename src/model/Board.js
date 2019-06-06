@@ -9,7 +9,7 @@ const defaultBoardState = [
 
 class Board {
   constructor(initialState=defaultBoardState) {
-    this.state = initialState
+    this.state = [...initialState]
   }
 
   getState = () => {

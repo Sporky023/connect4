@@ -1,23 +1,27 @@
 import React, { Component } from 'react'
-import Board from 'components/Board'
-
 import { connect } from 'react-redux'
+
 import { startGame } from 'actions'
+import GameRouter from 'components/GameRouter'
 
 class GameContainer extends Component {
-  render () {
-    const { boardState } = this.props
+  componentDidMount() {
+    this.props.startGame()
+  }
 
-    return (<Board boardState={boardState} />)
+  render () {
+    const { gameStatus } = this.props
+
+    return (<GameRouter gameStatus={gameStatus} />)
   }
 }
 
 const mapStateToProps = state => ({
-  boardState: state.board
+  gameStatus: state.game.status
 })
 
 const mapDispatchToProps = dispatch => ({
-  startGame: () => dispatch(startGame)
+  startGame: () => dispatch(startGame())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(GameContainer)
