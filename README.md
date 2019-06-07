@@ -2,9 +2,19 @@
 
 This is an implementation of the game Connect 4 in React, built as an exercise.
 
-This README is intended as a design journal, to track my thoughts and planning for the exercise.  
+## Installation and Usage
 
-## 11:15 am
+1. clone this repo and cd into the directory
+2. `yarn install` to populate deps in node_modules
+3. `yarn test` to ensure everything works
+4. `yarn start` to get a dev server running
+5. visit `localhost:8080` in a browser to play!
+
+## Project journal
+
+The rest of this README is intended as a design journal, to track my thoughts and planning for the exercise.
+
+### 11:15 am
 
 There are a few main steps to producing this application:
 
@@ -12,7 +22,7 @@ There are a few main steps to producing this application:
 * Integration that data model into reducers for a redux state
 * Build a react app that connects a UI to that state and reducer
 
-### The data model
+#### The data model
 
 The data model is the hardest part of this, so I'm going to start with that.
 
@@ -63,7 +73,7 @@ The utility of doing validation checks would be as a (non-exhaustive) means of d
 
 Without further ado, I'm going to start coding up these test cases.
 
-## 12:30 am
+### 12:30 am
 
 I'm going to have the win detection return the coordinates of the winning
 pieces.
@@ -74,7 +84,7 @@ it may yield productive play options later.
 One simple example is the ability to highlight winning pieces in the event of a
 win.
 
-## 1:55 pm
+### 1:55 pm
 
 I'm done with detecting wins on the board. Now I need to decide whether to build validation or not, or to move on to board manipulation.
 
@@ -88,7 +98,7 @@ Going to leave it as it for now.
 
 Also going to take a break.
 
-## 2:35 pm
+### 2:35 pm
 
 Starting again. Current test coverage is just detecting wins.
 I may add more coverage around detection if I find problems later on in implementation.
@@ -97,7 +107,7 @@ Next step is mutating the board, i.e. playing a move.
 
 A method on board will simply return true or false for whether the move is valid or not, and change the state for the tile moved in the case the move is valid.
 
-## 2:45 pm
+### 2:45 pm
 
 Okay that was easy. Next step is to design how the game flow will work.
 
@@ -149,18 +159,18 @@ things.
 
 There may be more work to do on the model, but that will be informed by construction of the app.
 
-## 3:50 pm
+### 3:50 pm
 
 First goal is going to be to initialize a board in the state, and then render that board to the screen.
 
-## 4:50 pm
+### 4:50 pm
 
 That took about an hour, and it's done.
 I've used a fake "devState" to get a pre-filled board for rendering.
 
 Current progress, roughly end of first 4.5 hours of work, is visible in commit 47c112c.
 
-## Second day, 12:45 pm
+### Second day, 12:45 pm
 
 Am picking this back up.
 Yesterday I got a board model built that detects win states,
@@ -179,7 +189,7 @@ After looking at libraries react-router and connected-react-router, it looks lik
 I'm just going to build a custom component for this.
 
 
-## 3:30 pm
+### 3:30 pm
 
 Just took a half hour break. Before that, got the game to the point where you pick colors and then take turns dropping tiles on the board.
 
@@ -193,7 +203,7 @@ So next I'm moving to detecting wins and draws on each play.
 
 First I'll have to add draw-detection to the board-evaluation behavior.
 
-## 4:45 pm
+### 4:45 pm
 
 Okay I've now got a fully playable game, that detects wins and losses. I'm going to make a quick to-do of things I want to do to finish and polish this.
 
@@ -215,6 +225,10 @@ Okay I've now got a fully playable game, that detects wins and losses. I'm going
 
 Going to take another break.
 
-## 5:45 pm
+### 5:45 pm
 
 Back from that break, and starting in on the list above.
+
+### 8:00 pm
+
+Making these final changes to this README, and pushing final project to Github
