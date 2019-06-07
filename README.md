@@ -192,3 +192,29 @@ Before I do anything else I'm going to address that edge case before I forget: e
 So next I'm moving to detecting wins and draws on each play.
 
 First I'll have to add draw-detection to the board-evaluation behavior.
+
+## 4:45 pm
+
+Okay I've now got a fully playable game, that detects wins and losses. I'm going to make a quick to-do of things I want to do to finish and polish this.
+
+* required by specs
+  * make the Win and Loss messages appear as alerts instead of within the DOM
+
+* polishing
+  * on win screen, show board with winning tiles highlighted
+  * better layout (larger board, better spacing)
+  * after players have selected colors, show the colors next to their names
+  * during gameplay, display the next tile to be dropped
+
+  * refactor board dimensions into a single config object:
+    * overall size factor (scale entire board with single number)
+    * ratio of cell size to size factor
+    * ratio of circle opening to cell size
+
+  * sound effects? (probably not)
+
+Going to take another break.
+
+## 5:45 pm
+
+Back from that break, and starting in on the list above.
