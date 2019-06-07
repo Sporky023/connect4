@@ -14,14 +14,14 @@ const PickColors = ({pickPlayer1Color}) => (
 
     <Row className='mt-5'>
       <Col xs={{ offset: 3, size: 3}} className='text-right'>
-        <Button color='danger' onClick={() => pickPlayer1Color('R') }>
-          Gimme Red!
+        <Button block color='danger' onClick={() => pickPlayer1Color('R') }>
+          Red
         </Button>
       </Col>
 
       <Col xs='3'>
-        <Button color='secondary' onClick={() => pickPlayer1Color('B') }>
-          Gimme Black!
+        <Button block color='secondary' onClick={() => pickPlayer1Color('B') }>
+          Black
         </Button>
       </Col>
     </Row>
