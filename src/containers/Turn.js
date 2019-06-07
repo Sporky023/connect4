@@ -2,13 +2,25 @@ import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
 import { Alert } from 'reactstrap'
 
+import Players from 'components/Players'
 import Board from 'components/Board'
 import { playMove } from 'actions'
 
-const Turn = ({message, boardState, currentPlayer, playMove}) => {
+const Turn = ({
+  message,
+  player1Color,
+  player2Color,
+  currentPlayer,
+  boardState,
+  playMove
+}) => {
   return (
   <Fragment>
-    <h2> Your turn, player { currentPlayer } </h2>
+    <Players
+      player1Color={player1Color}
+      player2Color={player2Color}
+      currentPlayer={currentPlayer}
+    />
 
     <Board
       boardState={boardState}
@@ -22,9 +34,11 @@ const Turn = ({message, boardState, currentPlayer, playMove}) => {
 
 const mapStateToProps = state => ({
   key: JSON.stringify(state.board),
+  player1Color: state.game.player1Color,
+  player2Color: state.game.player2Color,
+  currentPlayer: state.game.currentPlayer,
   message: state.game.message,
   boardState: state.board,
-  currentPlayer: state.game.currentPlayer
 })
 
 const mapDispatchToProps = dispatch => ({
