@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { Row, Col } from 'reactstrap'
 import BoardCircle from 'components/BoardCircle'
 
 const Player = ({name, color, isMyTurn}) => (
-  <h2>
-    {name}
-    { isMyTurn && <BoardCircle color={color} inline={true} big={true} /> }
-  </h2>
+  <div className='text-center'>
+    <h2> {name} </h2>
+    <div className='text-center'>
+      { isMyTurn && <BoardCircle color={color} inline={true} big={true} /> }
+    </div>
+  </div>
 )
 
 const Players = ({player1Color, player2Color, currentPlayer}) => (

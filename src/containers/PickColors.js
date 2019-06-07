@@ -6,18 +6,20 @@ import { pickPlayer1Color } from 'actions'
 
 const PickColors = ({pickPlayer1Color}) => (
   <Fragment>
-    <h1>Welcome to Connect 4!</h1>
+    <div className='text-center'>
+      <h1>Welcome!</h1>
 
-    <h2>Player 1, please choose your color</h2>
+      <h2 className='mt-4'>Player 1, please choose your color</h2>
+    </div>
 
-    <Row>
-      <Col xs={{ offset: 3, width: 3}}>
+    <Row className='mt-5'>
+      <Col xs={{ offset: 3, size: 3}} className='text-right'>
         <Button color='danger' onClick={() => pickPlayer1Color('R') }>
           Gimme Red!
         </Button>
       </Col>
 
-      <Col xs={{ offset: 3, width: 3}}>
+      <Col xs='3'>
         <Button color='secondary' onClick={() => pickPlayer1Color('B') }>
           Gimme Black!
         </Button>

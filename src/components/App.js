@@ -7,7 +7,7 @@ import GameContainer from 'containers/GameContainer'
 const App = () => (
   <Container>
     <Row>
-      <Col xs={{ offset: 1, width: 10 }}>
+      <Col xs={{ offset: 1, size: 10 }}>
         <GameContainer />
       </Col>
     </Row>

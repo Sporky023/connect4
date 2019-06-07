@@ -9,7 +9,7 @@ const winningTileYValues = (x, win) => (
 )
 
 const Board = ({boardState, onPlay, win}) => (
-  <div>
+  <div style={{display: 'inline-block'}}>
     {
       boardState.map( (column, x) => {
         return (

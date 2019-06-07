@@ -22,12 +22,15 @@ const Turn = ({
       currentPlayer={currentPlayer}
     />
 
-    <Board
-      boardState={boardState}
-      onPlay={ colIndex => playMove(currentPlayer, colIndex) }
-    />
+    <div className='text-center mt-5'>
+      <Board
+        boardState={boardState}
+        onPlay={ colIndex => playMove(currentPlayer, colIndex) }
+      />
 
-    { message && <Alert color='warning'>{message}</Alert> }
+      { message && <Alert color='warning'>{message}</Alert> }
+    </div>
+
   </Fragment>
 )
 }
