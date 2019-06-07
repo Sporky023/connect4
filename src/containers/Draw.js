@@ -1,7 +1,19 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { connect } from 'react-redux'
 
-const Draw = () => (
-  <div> It's a draw </div>
-)
+import { startGame } from 'actions'
 
-export default Draw
+const Draw = ({startGame}) => {
+  useEffect( () => {
+    alert('It was a draw')
+    startGame()
+  } )
+
+  return ( <div></div> )
+}
+
+const mapDispatchToProps = dispatch => ({
+  startGame: () => dispatch( startGame() )
+})
+
+export default connect(() => ({}), mapDispatchToProps)(Draw)

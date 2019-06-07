@@ -1,14 +1,23 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 
-const Win = ({currentPlayer}) => (
-  <div>
-    Player {currentPlayer} wins (this should be an alert)
-  </div>
-)
+import { startGame } from 'actions'
+
+const Win = ({currentPlayer, startGame}) => {
+  useEffect( () => {
+    alert(`Player ${currentPlayer} wins!`)
+    startGame()
+  } )
+
+  return ( <div></div> )
+}
 
 const mapStateToProps = state => ({
   currentPlayer: state.game.currentPlayer
 })
 
-export default connect(mapStateToProps)(Win)
+const mapDispatchToProps = dispatch => ({
+  startGame: () => dispatch( startGame() )
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Win)
