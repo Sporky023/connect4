@@ -5,7 +5,7 @@ import BoardCircle from 'components/BoardCircle'
 const Player = ({name, color, isMyTurn}) => (
   <h2>
     {name}
-    { isMyTurn && <BoardCircle color={color} inline={true} /> }
+    { isMyTurn && <BoardCircle color={color} inline={true} big={true} /> }
   </h2>
 )
 

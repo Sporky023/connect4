@@ -1,8 +1,8 @@
 import React from 'react'
 
-const circleStyle = (color, hasWinningTile, inline) => ({
-  width: '30px',
-  height: '30px',
+const circleStyle = (color, hasWinningTile, inline, big) => ({
+  width: big ? '40px' : '30px',
+  height: big ? '40px' : '30px',
   borderRadius: '50%',
   backgroundColor: { 'B': 'black', 'R': 'red', 'X': 'white' }[color],
   borderWidth: hasWinningTile ? '5px' : '0px',
@@ -11,7 +11,7 @@ const circleStyle = (color, hasWinningTile, inline) => ({
   display: inline && 'inline-block'
 })
 
-const BoardCircle = ({color, hasWinningTile, inline}) => (
+const BoardCircle = ({color, hasWinningTile, inline, big}) => (
   <div style={ circleStyle(color, hasWinningTile) }></div>
 )
 
