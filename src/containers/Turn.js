@@ -6,8 +6,6 @@ import Board from 'components/Board'
 import { playMove } from 'actions'
 
 const Turn = ({message, boardState, currentPlayer, playMove}) => {
-  console.log('Turn()', boardState, currentPlayer)
-
   return (
   <Fragment>
     <h2> Your turn, player { currentPlayer } </h2>

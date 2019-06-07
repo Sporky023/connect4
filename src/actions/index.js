@@ -13,19 +13,20 @@ export const playMove = (player, colIndex) => {
 
     if( boardModel.playMove(color, colIndex) ){
       let outcome = 'cont'
+      const wins = boardModel.getWins(color)
 
-      if( boardModel.getWins(color).length > 0 ){ outcome = 'win' }
+      if( wins.length > 0 ){ outcome = 'win' }
       if( boardModel.isDraw() ){ outcome = 'draw' }
 
-      dispatch( playMoveOfColor(color, colIndex, outcome) )
+      dispatch( playMoveOfColor(color, colIndex, outcome, wins[0]) )
     } else {
       dispatch( invalidMove() )
     }
   }
 }
 
-const playMoveOfColor = (color, colIndex, outcome) => {
-  return ({ type: 'play-move-of-color', color, colIndex, outcome })
+const playMoveOfColor = (color, colIndex, outcome, win) => {
+  return ({ type: 'play-move-of-color', color, colIndex, outcome, win })
 }
 
 const invalidMove = () => ({ type: 'invalid-move' })

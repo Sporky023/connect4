@@ -8,16 +8,22 @@ const paddedCol = col => (
   [ ...( new Array( 6 - col.length ).fill('X') ), ...( clone(col).reverse() ) ]
 )
 
-const BoardCol = ({col, onPlay}) => {
-  return (
-    <div style={{ display: 'inline-block' }}>
-      <Button onClick={onPlay}> V </Button>
+const hasWinningTile = (reversedY, winningYValues) => (
+  winningYValues &&
+  winningYValues.indexOf( 5 - reversedY ) > -1
+)
 
-      { paddedCol(col).map( (color, i) => (
-        <BoardSpace key={i} color={color} />
-      ) ) }
-    </div>
-  )
-}
+const BoardCol = ({col, winningTileYValues, onPlay}) => (
+  <div style={{ display: 'inline-block' }}>
+    <Button onClick={onPlay}> V </Button>
+
+    { paddedCol(col).map( (color, reversedY) => (
+      <BoardSpace
+        key={reversedY}
+        color={color}
+        hasWinningTile={ hasWinningTile(reversedY, winningTileYValues) } />
+    ) ) }
+  </div>
+)
 
 export default BoardCol

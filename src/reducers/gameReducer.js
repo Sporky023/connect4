@@ -18,7 +18,12 @@ const gameReducer = (state={}, action) => {
     }
     case('play-move-of-color'): {
       switch(action.outcome){
-        case('win'):{ newState.status = 'win'; break }
+        case('win'):{
+          newState.status = 'win'
+          newState.win = action.win
+          break
+        }
+
         case('draw'):{ newState.status = 'draw'; break }
         case('cont'):{ newState.currentPlayer = 3 - newState.currentPlayer }
       }
